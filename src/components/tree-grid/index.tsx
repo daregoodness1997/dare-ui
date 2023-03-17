@@ -49,7 +49,8 @@ export const TreeGrid: React.FC<Props> = ({
 
   const RenderTableRows = (
     data: DataType[],
-    onCheckboxSelected?: (data?: SyntheticEvent) => void
+    onCheckboxSelected?: (data?: SyntheticEvent) => void,
+    onRowClicked?: (data?: SyntheticEvent) => void
   ) => {
     return data.map(item => (
       <React.Fragment key={item.id}>
@@ -68,7 +69,8 @@ export const TreeGrid: React.FC<Props> = ({
         </motion.tr>
         {rowExpanded.includes(item.id) && item.children && (
           <motion.tr>
-            <motion.td colSpan={3}>
+            <motion.td colSpan={columnSchema.length + 1}>
+              {/* {RenderTableRows(item.children, onCheckboxSelected, onRowClicked)} */}
               <motion.table className='tree-grid-child'>
                 <motion.tbody>
                   {RenderTableRows(item.children, onCheckboxSelected)}
