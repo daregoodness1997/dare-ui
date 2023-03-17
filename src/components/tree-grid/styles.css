@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+
+.tree-grid {
+  border-collapse: collapse;
+  margin: 25px auto;
+  font-size: 0.75em;
+  padding: 0.6rem;
+  font-family: 'Lato', sans-serif;
+  width: 100%;
+  min-width: 400px;
+  border-radius: 0.2rem;
+}
+
+.tree-grid thead tr {
+  background-color: #f3f3f3;
+  color: #ffffff;
+  text-align: left;
+  color: #333;
+}
+
+tr,
+td {
+  padding: 0;
+  margin: 0;
+}
+tbody {
+}
+
+.tree-grid th,
+.tree-grid td {
+  padding: 0.6rem 0.8rem;
+}
+
+td {
+}
+.tree-grid tr:hover {
+  background-color: #fdfdfd;
+}
+.tree-grid-child {
+  width: 100%;
+}
+
+.tree-grid-child table {
+}
+
+td:not(.tree-grid-first) {
+}
+.tree-grid-first {
+  width: 30px;
+  margin: 0;
+}

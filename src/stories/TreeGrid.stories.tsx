@@ -1,7 +1,7 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { TreeGrid } from '../components/tree-grid';
-import { data } from '../utils/data';
+import { columnSchema, data } from '../utils/data';
 
 export default {
   title: 'Example/TreeGrid',
@@ -10,15 +10,14 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
-} as ComponentMeta<typeof TreeGrid>;
+} as Meta<typeof TreeGrid>;
 
-const Template: ComponentStory<typeof TreeGrid> = args => (
-  <TreeGrid {...args} />
-);
+const Template: StoryFn<typeof TreeGrid> = args => <TreeGrid {...args} />;
 
 export const Primary = Template.bind({});
 
 Primary.args = {
   data: data,
   title: 'TreeGrid',
+  columns: columnSchema,
 };
