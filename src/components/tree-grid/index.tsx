@@ -2,6 +2,7 @@ import React, { SyntheticEvent, useState } from 'react';
 import './styles.css';
 import { motion } from 'framer-motion';
 import { columnSchema } from '../../utils/data';
+import { Input } from '../input';
 
 type DataType = {
   id: number;
@@ -86,7 +87,7 @@ export const TreeGrid: React.FC<Props> = ({
   return (
     <motion.div>
       <motion.h2>{title}</motion.h2>
-      {hasSearch ? <input /> : null}
+      {hasSearch ? <Input /> : null}
       <motion.table className='tree-grid'>
         {columns ? (
           <motion.thead>
