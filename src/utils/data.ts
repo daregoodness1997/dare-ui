@@ -5,6 +5,7 @@ export const data = [
     name: 'Ademola Ojo',
     age: '56',
     location: 'Abuja',
+    status: 'true',
     children: [
       {
         id: 2,
@@ -12,6 +13,7 @@ export const data = [
         name: 'Yewande Ojo',
         age: '46',
         location: 'Lagos',
+        status: 'false',
 
         children: [
           {
@@ -54,6 +56,7 @@ export const data = [
     name: 'John Smiith',
     age: '36',
     location: 'London',
+    status: 'true',
   },
 ];
 
@@ -83,6 +86,13 @@ export const columnSchema = [
     id: 3,
     selector: 'Location',
     row: 'location',
+    sort: true,
+    omit: false,
+  },
+  {
+    id: 4,
+    selector: 'Status',
+    row: 'status',
     sort: true,
     omit: false,
   },

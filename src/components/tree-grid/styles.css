@@ -6,11 +6,9 @@ h2 {
 }
 
 .tree-grid {
-  border-collapse: collapse;
   margin: 25px auto;
   font-size: 0.75em;
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
   width: 100%;
   min-width: 400px;
   border-radius: 0.2rem;
@@ -74,4 +72,40 @@ td:not(.tree-grid-first) {
 .tree-grid-first {
   width: 30px;
   margin: 0;
+}
+
+/* Tree Row */
+.tree-row {
+  display: flex;
+  gap: 0.4rem;
+  justify-content: space-between;
+}
+
+.tree-row.head {
+  font-weight: 700;
+  padding: 0.6rem 0;
+  background-color: #f3f3f3;
+}
+.tree-row.head {
+  padding: 0.6rem 0;
+}
+
+.tree-row .tree-row-item:nth-child(2) {
+  /* margin-left: -10rem; */
+}
+
+.tree-row-item {
+  margin-right: 1rem;
+  min-width: 96px;
+  width: auto;
+  text-align: left;
+  padding: 0.6rem 0;
+}
+
+.tree-grid-first {
+  padding: 0.6rem 0;
+}
+
+.tree-grid-child .tree-row .tree-row-item:nth-child(1) {
+  background-color: red;
 }
