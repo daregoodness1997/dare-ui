@@ -19,9 +19,21 @@ interface Props {
   title?: string;
   columns?: ColumnType[];
   customStyle: {};
+  onCheckboxSelected?: (data?: SyntheticEvent) => void;
+  hasSearch?: boolean;
 }
 
-export const TreeGrid: React.FC<Props> = ({ data }) => {
+export const TreeGrid: React.FC<Props> = ({
+  data,
+  onCheckboxSelected,
+  condensed,
+  size,
+  onRowClicked,
+  title,
+  columns,
+  customStyle,
+  hasSearch,
+}) => {
   const [rowExpanded, setRowExpanded] = useState<number[]>([]);
   const toggleExpand = (id: number) => {
     if (rowExpanded.includes(id)) {
@@ -33,23 +45,27 @@ export const TreeGrid: React.FC<Props> = ({ data }) => {
     }
   };
 
-  const RenderTableRows = (data: DataType[]) => {
+  const RenderTableRows = (
+    data: DataType[],
+    onCheckboxSelected?: (data?: SyntheticEvent) => void
+  ) => {
     return data.map(item => (
       <React.Fragment key={item.id}>
-        <tr>
+        <tr onClick={onRowClicked}>
           <td onClick={() => toggleExpand(item.id)} className='tree-grid-first'>
-            <input type='checkbox' />
+            <input type='checkbox' onClick={onCheckboxSelected} />
 
             {rowExpanded.includes(item.id) ? '-' : '+'}
           </td>
-          <td>{item.name}</td>
           <td>{item.value}</td>
         </tr>
         {rowExpanded.includes(item.id) && item.children && (
           <tr className='tree-grid-child'>
             <td colSpan={3}>
               <table>
-                <tbody>{RenderTableRows(item.children)}</tbody>
+                <tbody>
+                  {RenderTableRows(item.children, onCheckboxSelected)}
+                </tbody>
               </table>
             </td>
           </tr>
@@ -59,15 +75,17 @@ export const TreeGrid: React.FC<Props> = ({ data }) => {
   };
 
   return (
-    <table className='tree-grid'>
-      <thead>
-        <tr>
-          <th className='tree-grid-first'></th>
-          <th>Name</th>
-          <th>Value</th>
-        </tr>
-      </thead>
-      <tbody>{RenderTableRows(data)}</tbody>
-    </table>
+    <div>
+      {hasSearch ? <input /> : null}
+      <table className='tree-grid'>
+        <thead>
+          <tr>
+            <th className='tree-grid-first'></th>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>{RenderTableRows(data, onCheckboxSelected)}</tbody>
+      </table>
+    </div>
   );
 };
