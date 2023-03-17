@@ -71,7 +71,7 @@ export const TreeGrid: React.FC<Props> = ({
           <motion.tr>
             <motion.td colSpan={columnSchema.length + 1}>
               {/* {RenderTableRows(item.children, onCheckboxSelected, onRowClicked)} */}
-              <motion.table className='tree-grid-child'>
+              <motion.table className='tree-grid-child '>
                 <motion.tbody>
                   {RenderTableRows(item.children, onCheckboxSelected)}
                 </motion.tbody>
