@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import { TreeGrid } from '../components/tree-grid';
-import { data } from '../utils/data';
+import { columnSchema, data } from '../utils/data';
 
 export default {
   title: 'Example/TreeGrid',
@@ -19,4 +19,5 @@ export const Primary = Template.bind({});
 Primary.args = {
   data: data,
   title: 'TreeGrid',
+  columns: columnSchema,
 };

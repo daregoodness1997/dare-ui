@@ -34,9 +34,33 @@ export const data = [
   },
 ];
 
-export const column = [
+type ColumnType = {
+  id: number;
+  row: Record<string, any>;
+  sort?: boolean;
+  omit?: boolean;
+};
+
+export const columnSchema = [
   {
     id: 1,
-    row: '',
+    selector: 'Name',
+    row: 'name',
+    sort: true,
+    omit: false,
+  },
+  {
+    id: 2,
+    selector: 'Age',
+    row: 'age',
+    sort: true,
+    omit: false,
+  },
+  {
+    id: 3,
+    selector: 'Location',
+    row: 'location',
+    sort: true,
+    omit: false,
   },
 ];
