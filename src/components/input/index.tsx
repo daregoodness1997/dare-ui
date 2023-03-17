@@ -1,16 +1,36 @@
-import React, { InputHTMLAttributes } from 'react';
+import React, { InputHTMLAttributes, SyntheticEvent } from 'react';
+import './styles.css';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
-  error?: boolean;
-  namme?: string;
+  state?: 'regualar' | 'error' | 'warning' | 'verifying';
+  name?: string;
   label?: string;
+  error?: boolean;
+  onChange?: (e?: SyntheticEvent) => void;
 }
 
-export const Input: React.FC<Props> = ({ error, name, label, ...props }) => {
+export const Input: React.FC<Props> = ({
+  state,
+  name,
+  label,
+  error,
+  onChange,
+  ...props
+}) => {
   return (
-    <div>
+    <div className='form-control'>
       {label ? <label htmlFor={name}>{label}</label> : null}
-      <input name={name} {...props} />
+      <div className='form-wrapper'>
+        <input
+          name={name}
+          onChange={onChange}
+          {...props}
+          className={`input ${state === 'error' && 'error'} ${
+            state === 'warning' && 'warning'
+          }`}
+        />
+      </div>
+
       {error ? <div>{error}</div> : null}
     </div>
   );

@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+
+.form-control {
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+label {
+  font-size: 13px;
+  color: #60626c;
+}
+
+.form-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  background-color: #f9fafa;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  border: 0.6px solid #cfd0d3;
+  width: 100%;
+}
+
+.input:placeholder {
+  color: #666;
+}
+
+.input:focus {
+  outline: 1px solid #85a6ff;
+}
+
+.input.warning {
+  background-color: #ffb8050d;
+  border: 1px solid #ffb805;
+}
+
+.input::placeholder.warning {
+  color: #ffb805;
+}
+.input.error {
+  background-color: #ff51440d;
+  border: 1px solid #ff5144;
+}
