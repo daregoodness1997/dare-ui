@@ -37,14 +37,16 @@ export const TreeGrid: React.FC<Props> = ({ data }) => {
     return data.map(item => (
       <React.Fragment key={item.id}>
         <tr>
-          <td onClick={() => toggleExpand(item.id)}>
+          <td onClick={() => toggleExpand(item.id)} className='tree-grid-first'>
+            <input type='checkbox' />
+
             {rowExpanded.includes(item.id) ? '-' : '+'}
           </td>
           <td>{item.name}</td>
           <td>{item.value}</td>
         </tr>
         {rowExpanded.includes(item.id) && item.children && (
-          <tr>
+          <tr className='tree-grid-child'>
             <td colSpan={3}>
               <table>
                 <tbody>{RenderTableRows(item.children)}</tbody>
@@ -60,7 +62,7 @@ export const TreeGrid: React.FC<Props> = ({ data }) => {
     <table className='tree-grid'>
       <thead>
         <tr>
-          <th></th>
+          <th className='tree-grid-first'></th>
           <th>Name</th>
           <th>Value</th>
         </tr>

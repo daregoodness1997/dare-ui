@@ -9,3 +9,29 @@
   min-width: 400px;
   width: '100%';
 }
+
+.tree-grid thead tr {
+  background-color: #f3f3f3;
+  color: #ffffff;
+  text-align: left;
+  color: #333;
+}
+
+.tree-grid th,
+.tree-grid td {
+  padding: 0.8rem 1rem;
+}
+.tree-grid tr:hover {
+  background-color: #fdfdfd;
+}
+.tree-grid-child {
+  /* background-color: red; */
+}
+
+.tree-grid-child table {
+}
+
+.tree-grid-first {
+  width: 40px;
+  margin: 0;
+}
