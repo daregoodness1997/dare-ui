@@ -1,21 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
 
+h2 {
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.2rem;
+}
+
 .tree-grid {
   border-collapse: collapse;
   margin: 25px auto;
   font-size: 0.75em;
-  padding: 0.6rem;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
   width: 100%;
   min-width: 400px;
   border-radius: 0.2rem;
+  box-sizing: border-box;
+  background-color: #fff;
 }
 
 .tree-grid thead tr {
-  background-color: #f3f3f3;
+  background-color: #fff;
   color: #ffffff;
   text-align: left;
   color: #333;
+}
+
+.tree-grid tbody tr:nth-child(2) td,
+.tree-grid thead tr:nth-child(2) td {
+  /* background-color: red; */
+}
+
+.tree-grid table tr td:nth-child(2) {
+  /* background-color: yellow; */
+  width: 49%;
+}
+
+.tree-grid tbody tr td:nth-child(2) {
+  /* background-color: orange; */
+}
+
+.tree-grid thead tr th:nth-child(2) {
+  /* background-color: blue; */
 }
 
 tr,
@@ -28,19 +53,20 @@ tbody {
 
 .tree-grid th,
 .tree-grid td {
-  padding: 0.6rem 0.8rem;
+  padding: 0.8rem;
 }
 
 td {
 }
 .tree-grid tr:hover {
-  background-color: #fdfdfd;
+  /* background-color: #fdfdfd; */
 }
 .tree-grid-child {
   width: 100%;
 }
 
-.tree-grid-child table {
+.tree-grid-child tr {
+  /* background-color: pink; */
 }
 
 td:not(.tree-grid-first) {

@@ -12,12 +12,25 @@ export default {
   },
 } as Meta<typeof TreeGrid>;
 
-const Template: StoryFn<typeof TreeGrid> = args => <TreeGrid {...args} />;
+const Template: StoryFn<typeof TreeGrid> = args => (
+  <div
+    style={{
+      backgroundColor: '#fefefe',
+      display: 'grid',
+      placeItems: 'center',
+    }}
+  >
+    <div style={{ width: '800px' }}>
+      <TreeGrid {...args} />;
+    </div>
+  </div>
+);
 
 export const Primary = Template.bind({});
 
 Primary.args = {
   data: data,
-  title: 'TreeGrid',
+  title: 'User Data',
   columns: columnSchema,
+  onCheckboxSelected: () => console.log('checked'),
 };
