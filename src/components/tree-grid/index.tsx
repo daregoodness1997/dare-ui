@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { SyntheticEvent, useState } from 'react';
 
 type DataType = {
   id: number;
@@ -6,11 +6,21 @@ type DataType = {
   [key: string]: any;
 };
 
+type ColumnType = {
+  [key: string]: any;
+};
+
 interface Props {
   data: DataType[];
+  size?: 'small' | 'medium' | 'large';
+  condensed?: boolean;
+  onRowClicked?: (data?: SyntheticEvent) => void;
+  title?: string;
+  columns?: ColumnType[];
+  customStyle: {};
 }
 
-const TreeGrid: React.FC<Props> = ({ data }) => {
+export const TreeGrid: React.FC<Props> = ({ data }) => {
   const [rowExpanded, setRowExpanded] = useState<number[]>([]);
   const toggleExpand = (id: number) => {
     if (rowExpanded.includes(id)) {
@@ -58,5 +68,3 @@ const TreeGrid: React.FC<Props> = ({ data }) => {
     </table>
   );
 };
-
-export default TreeGrid;
