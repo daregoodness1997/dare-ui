@@ -3,7 +3,7 @@
 .tree-grid {
   border-collapse: collapse;
   margin: 25px auto;
-  font-size: 0.9em;
+  font-size: 0.75em;
   padding: 0.6rem;
   font-family: 'Lato', sans-serif;
   width: 100%;
@@ -28,7 +28,7 @@ tbody {
 
 .tree-grid th,
 .tree-grid td {
-  padding: 0.8rem 1rem;
+  padding: 0.6rem 0.8rem;
 }
 
 td {
@@ -43,6 +43,8 @@ td {
 .tree-grid-child table {
 }
 
+td:not(.tree-grid-first) {
+}
 .tree-grid-first {
   width: 30px;
   margin: 0;

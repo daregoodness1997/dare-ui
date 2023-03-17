@@ -1,5 +1,6 @@
 import React, { SyntheticEvent, useState } from 'react';
 import './styles.css';
+import { motion } from 'framer-motion';
 
 type DataType = {
   id: number;
@@ -51,41 +52,49 @@ export const TreeGrid: React.FC<Props> = ({
   ) => {
     return data.map(item => (
       <React.Fragment key={item.id}>
-        <tr onClick={onRowClicked}>
-          <td onClick={() => toggleExpand(item.id)} className='tree-grid-first'>
+        <motion.tr onClick={onRowClicked} layout>
+          <motion.td
+            onClick={() => toggleExpand(item.id)}
+            className='tree-grid-first'
+          >
             <input type='checkbox' onClick={onCheckboxSelected} />
 
             {rowExpanded.includes(item.id) ? '-' : '+'}
-          </td>
-          <td>{item.value}</td>
-        </tr>
+          </motion.td>
+          <motion.td>{item.name}</motion.td>
+          <motion.td>{item.age}</motion.td>
+          <motion.td>{item.location}</motion.td>
+        </motion.tr>
         {rowExpanded.includes(item.id) && item.children && (
-          <tr className='tree-grid-child'>
-            <td colSpan={3}>
-              <table>
-                <tbody>
+          <motion.tr layout>
+            <motion.td colSpan={3}>
+              <motion.table className='tree-grid-child'>
+                <motion.tbody>
                   {RenderTableRows(item.children, onCheckboxSelected)}
-                </tbody>
-              </table>
-            </td>
-          </tr>
+                </motion.tbody>
+              </motion.table>
+            </motion.td>
+          </motion.tr>
         )}
       </React.Fragment>
     ));
   };
 
   return (
-    <div>
+    <motion.div>
+      <motion.h2>{title}</motion.h2>
       {hasSearch ? <input /> : null}
-      <table className='tree-grid'>
-        <thead>
-          <tr>
-            <th className='tree-grid-first'></th>
-            <th>Name</th>
-          </tr>
-        </thead>
-        <tbody>{RenderTableRows(data, onCheckboxSelected)}</tbody>
-      </table>
-    </div>
+      <motion.table className='tree-grid'>
+        <motion.thead>
+          <motion.tr layout>
+            <motion.th className='tree-grid-first'></motion.th>
+            <motion.th>Name</motion.th>
+            <motion.th>Age</motion.th>
+            <motion.th>Location</motion.th>
+          </motion.tr>
+        </motion.thead>
+        <motion.tbody>{RenderTableRows(data, onCheckboxSelected)}</motion.tbody>
+      </motion.table>
+    </motion.div>
   );
 };
