@@ -12,11 +12,17 @@ label {
   color: #60626c;
 }
 
+.form-wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .input {
   background-color: #f9fafa;
   padding: 0.8rem 1rem;
   border-radius: 6px;
   border: 0.6px solid #cfd0d3;
+  width: 100%;
 }
 
 .input:placeholder {
