@@ -1,4 +1,5 @@
 import React, { SyntheticEvent, useState } from 'react';
+import './styles.css';
 
 type DataType = {
   id: number;
@@ -56,7 +57,7 @@ export const TreeGrid: React.FC<Props> = ({ data }) => {
   };
 
   return (
-    <table>
+    <table className='tree-grid'>
       <thead>
         <tr>
           <th></th>
