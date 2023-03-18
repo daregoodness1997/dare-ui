@@ -72,6 +72,8 @@ td:not(.tree-grid-first) {
 .tree-grid-first {
   width: 30px;
   margin: 0;
+  display: flex;
+  align-items: center;
 }
 
 /* Tree Row */
@@ -80,12 +82,14 @@ td:not(.tree-grid-first) {
   gap: 0.4rem;
   /* justify-content: space-between; */
   gap: 6px;
+  align-items: center;
 }
 
 .tree-col {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
 }
 
 .tree-row .tree-grid-first {
@@ -119,8 +123,12 @@ td:not(.tree-grid-first) {
   padding: 0.6rem 0;
 }
 
+.tree-grid.condensed .tree-row-item,
+.tree-grid.condensed .tree-grid-first {
+  padding: 0.32rem 0;
+}
 .tree-grid-first {
-  padding: 0.6rem 0;
+  padding: 0.8rem 0;
 }
 
 .tree-grid-child .tree-row .tree-row-item:nth-child(1) {

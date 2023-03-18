@@ -6,6 +6,7 @@ import { Input } from '../input';
 import { viewAnimation, container } from '../../utils/animation';
 import useMeasure from 'react-use-measure';
 import TableRow from './components/TableRow';
+import Spinner from '../spinner';
 
 export type DataType = {
   id: number;
@@ -34,6 +35,8 @@ interface Props {
   customStyle: CustomStyleType;
   onCheckboxSelected: (data?: SyntheticEvent) => void;
   hasSearch?: boolean;
+  isLoading?: boolean;
+  isEmpty?: boolean;
 }
 
 export const TreeGrid: React.FC<Props> = ({
@@ -46,6 +49,8 @@ export const TreeGrid: React.FC<Props> = ({
   columns,
   customStyle,
   hasSearch,
+  isLoading,
+  isEmpty,
 }) => {
   const [rowExpanded, setRowExpanded] = useState<number[]>([]);
 
@@ -64,7 +69,7 @@ export const TreeGrid: React.FC<Props> = ({
       <motion.h2>{title}</motion.h2>
       {hasSearch ? <Input /> : null}
       <motion.div
-        className='tree-grid'
+        className={`tree-grid ${condensed ? 'condensed' : null}`}
         variants={viewAnimation}
         initial='hidden'
         animate='visible'
@@ -91,14 +96,22 @@ export const TreeGrid: React.FC<Props> = ({
         ) : null}
 
         <motion.div variants={container} initial='hidden' animate='show'>
-          {TableRow(
-            data,
-            onCheckboxSelected,
-            onRowClicked,
-            toggleExpand,
-            columnSchema,
-            rowExpanded,
-            customStyle
+          {isLoading ? (
+            <Spinner />
+          ) : isEmpty ? (
+            <div>isEmpty</div>
+          ) : (
+            <React.Fragment>
+              {TableRow(
+                data,
+                onCheckboxSelected,
+                onRowClicked,
+                toggleExpand,
+                columnSchema,
+                rowExpanded,
+                customStyle
+              )}
+            </React.Fragment>
           )}
         </motion.div>
       </motion.div>
