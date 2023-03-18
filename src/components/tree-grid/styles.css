@@ -6,11 +6,9 @@ h2 {
 }
 
 .tree-grid {
-  border-collapse: collapse;
   margin: 25px auto;
   font-size: 0.75em;
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
   width: 100%;
   min-width: 400px;
   border-radius: 0.2rem;
@@ -74,4 +72,67 @@ td:not(.tree-grid-first) {
 .tree-grid-first {
   width: 30px;
   margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Tree Row */
+.tree-row {
+  display: flex;
+  gap: 0.4rem;
+  /* justify-content: space-between; */
+  gap: 6px;
+  align-items: center;
+}
+
+.tree-col {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tree-row .tree-grid-first {
+  width: 40px !important;
+}
+
+.tree-grid-child .tree-grid-first {
+  width: 34px;
+  padding-left: 6px;
+  box-sizing: border-box;
+}
+
+.tree-row.head {
+  font-weight: 700;
+  padding: 0.6rem 0;
+  background-color: #f3f3f3;
+}
+.tree-row.head {
+  padding: 0.6rem 0;
+}
+
+.tree-row .tree-row-item:nth-child(2) {
+  /* margin-left: -10rem; */
+}
+
+.tree-row-item {
+  margin-right: 1rem;
+  min-width: 96px;
+  width: auto;
+  text-align: left;
+  padding: 0.6rem 0;
+}
+
+.tree-grid.condensed .tree-row-item,
+.tree-grid.condensed .tree-grid-first {
+  padding: 0.32rem 0;
+}
+.tree-grid-first {
+  padding: 0.8rem 0;
+}
+
+.tree-grid-child .tree-row .tree-row-item:nth-child(1) {
+}
+
+.tree-col .tree-row-item:first-child {
 }

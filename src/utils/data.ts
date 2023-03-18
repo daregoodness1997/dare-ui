@@ -5,6 +5,7 @@ export const data = [
     name: 'Ademola Ojo',
     age: '56',
     location: 'Abuja',
+    status: 'true',
     children: [
       {
         id: 2,
@@ -12,6 +13,7 @@ export const data = [
         name: 'Yewande Ojo',
         age: '46',
         location: 'Lagos',
+        status: 'false',
 
         children: [
           {
@@ -54,12 +56,13 @@ export const data = [
     name: 'John Smiith',
     age: '36',
     location: 'London',
+    status: 'true',
   },
 ];
 
-type ColumnType = {
+export type ColumnType = {
   id: number;
-  row: Record<string, any>;
+  row: string;
   sort?: boolean;
   omit?: boolean;
 };
@@ -83,6 +86,27 @@ export const columnSchema = [
     id: 3,
     selector: 'Location',
     row: 'location',
+    sort: true,
+    omit: false,
+  },
+  {
+    id: 4,
+    selector: 'Status',
+    row: 'status',
+    sort: true,
+    omit: false,
+  },
+  {
+    id: 5,
+    selector: 'Range',
+    row: 'range',
+    sort: true,
+    omit: false,
+  },
+  {
+    id: 6,
+    selector: 'Pedigree',
+    row: 'pedigree',
     sort: true,
     omit: false,
   },

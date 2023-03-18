@@ -1,0 +1,44 @@
+.text-wrapper {
+  height: 16px;
+  overflow-y: hidden;
+}
+.string {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  animation: move 4s infinite;
+}
+
+.greeting {
+  position: relative;
+  top: 8.6vmin;
+  animation: white-out 5s infinite;
+  font-size: 13px;
+}
+
+.one {
+  color: #dddddd;
+}
+
+.two {
+  color: #333;
+}
+
+@keyframes move {
+  20% {
+    transform: translatey(-5.8vmin);
+    opacity: 1;
+  }
+  40% {
+    transform: translatey(-11vmin);
+  }
+  60% {
+    transform: translatey(-16.5vmin);
+  }
+  80% {
+    transform: translatey(-11vmin);
+  }
+  100% {
+    transform: translatey(-5.8vmin);
+  }
+}

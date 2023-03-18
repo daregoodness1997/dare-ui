@@ -1,20 +1,32 @@
 import React, { InputHTMLAttributes, SyntheticEvent } from 'react';
+import AnimatedText from '../animated-text';
+import Spinner from '../spinner';
 import './styles.css';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   state?: 'regualar' | 'error' | 'warning' | 'verifying';
   name?: string;
   label?: string;
-  error?: boolean;
+  isError?: boolean;
   onChange?: (e?: SyntheticEvent) => void;
+  isDisabled?: boolean;
+  isProcessing?: boolean;
+  isSuccess?: boolean;
+  isWarning?: boolean;
+  helperText?: string;
 }
 
 export const Input: React.FC<Props> = ({
   state,
   name,
   label,
-  error,
+  isError: error,
   onChange,
+  isDisabled,
+  isProcessing,
+  isSuccess,
+  isWarning,
+  helperText,
   ...props
 }) => {
   return (
@@ -32,6 +44,17 @@ export const Input: React.FC<Props> = ({
       </div>
 
       {error ? <div>{error}</div> : null}
+      {isProcessing ? (
+        <div className='helper-box'>
+          <Spinner size='sm' />{' '}
+          <small>
+            <AnimatedText />
+          </small>
+        </div>
+      ) : null}
+      {isSuccess ? <div>Is Success...</div> : null}
+      {isWarning ? <div>Is Warning...</div> : null}
+      {/* {helperText ? <div>{helperText}</div> : null} */}
     </div>
   );
 };

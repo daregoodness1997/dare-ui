@@ -21,7 +21,7 @@ const Template: StoryFn<typeof TreeGrid> = args => (
     }}
   >
     <div style={{ width: '800px' }}>
-      <TreeGrid {...args} />;
+      <TreeGrid {...args} />
     </div>
   </div>
 );

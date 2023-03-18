@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
+  box-sizing: border-box;
 }
 
 label {
@@ -17,12 +18,23 @@ label {
   width: 100%;
 }
 
+.form-control .helper-box {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.form-control .helper-box small {
+  color: #666;
+}
+
 .input {
   background-color: #f9fafa;
   padding: 0.8rem 1rem;
   border-radius: 6px;
   border: 0.6px solid #cfd0d3;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .input:placeholder {
