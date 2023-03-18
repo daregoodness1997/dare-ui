@@ -1,10 +1,14 @@
 import React from 'react';
 import './styles.css';
 
-const Spinner = () => {
+interface Props {
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const Spinner: React.FC<Props> = ({ size }) => {
   return (
     <div className='spin-wrapper'>
-      <div className='spin'></div>
+      <div className={`spin ${size}`}></div>
     </div>
   );
 };
