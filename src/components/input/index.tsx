@@ -5,15 +5,20 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   state?: 'regualar' | 'error' | 'warning' | 'verifying';
   name?: string;
   label?: string;
-  error?: boolean;
+  isError?: boolean;
   onChange?: (e?: SyntheticEvent) => void;
+  isDisabled?: boolean;
+  isProcessing?: boolean;
+  isSuccess?: boolean;
+  isWarning?: boolean;
+  helperText?: string;
 }
 
 export const Input: React.FC<Props> = ({
   state,
   name,
   label,
-  error,
+  isError: error,
   onChange,
   ...props
 }) => {

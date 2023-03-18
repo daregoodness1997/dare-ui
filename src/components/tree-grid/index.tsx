@@ -29,7 +29,7 @@ interface Props {
   data: DataType[];
   size?: 'small' | 'medium' | 'large';
   condensed?: boolean;
-  onRowClicked: (data?: SyntheticEvent) => void;
+  onRowClicked: (data?: DataType) => {};
   title?: string;
   columns?: ColumnType[];
   customStyle: CustomStyleType;
