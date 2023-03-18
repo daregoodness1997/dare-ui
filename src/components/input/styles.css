@@ -24,6 +24,7 @@ label {
   border-radius: 6px;
   border: 0.6px solid #cfd0d3;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .input:placeholder {

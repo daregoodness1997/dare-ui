@@ -17,6 +17,13 @@ type ColumnType = {
   [key: string]: any;
 };
 
+export type CustomStyleType = {
+  tableStyles?: {};
+  tableHeadStyles?: {};
+  tableBodyStyles?: {};
+  tableCellStyles?: {};
+};
+
 interface Props {
   data: DataType[];
   size?: 'small' | 'medium' | 'large';
@@ -24,7 +31,7 @@ interface Props {
   onRowClicked: (data?: SyntheticEvent) => void;
   title?: string;
   columns?: ColumnType[];
-  customStyle: {};
+  customStyle: CustomStyleType;
   onCheckboxSelected: (data?: SyntheticEvent) => void;
   hasSearch?: boolean;
 }
@@ -62,10 +69,14 @@ export const TreeGrid: React.FC<Props> = ({
         initial='hidden'
         animate='visible'
         exit='exit'
+        style={customStyle?.tableStyles}
       >
         {columns ? (
           <motion.div>
-            <motion.div className='tree-row head'>
+            <motion.div
+              className='tree-row head'
+              style={customStyle?.tableHeadStyles}
+            >
               <motion.div className='tree-grid-first'></motion.div>
 
               <div className='tree-col'>
@@ -86,7 +97,8 @@ export const TreeGrid: React.FC<Props> = ({
             onRowClicked,
             toggleExpand,
             columnSchema,
-            rowExpanded
+            rowExpanded,
+            customStyle
           )}
         </motion.div>
       </motion.div>

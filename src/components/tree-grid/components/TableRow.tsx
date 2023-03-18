@@ -1,5 +1,5 @@
 import React, { SyntheticEvent } from 'react';
-import { DataType } from '..';
+import { CustomStyleType, DataType } from '..';
 import { motion } from 'framer-motion';
 import { viewAnimation } from '../../../utils/animation';
 import { ColumnType } from '../../../utils/data';
@@ -10,7 +10,8 @@ const TableRow = (
   onRowClicked: (data?: SyntheticEvent) => void,
   toggleExpand: (data: number) => void,
   columnSchema: ColumnType[],
-  rowExpanded: number[]
+  rowExpanded: number[],
+  customStyle: CustomStyleType
 ) => {
   return data.map(item => (
     <motion.div
@@ -24,6 +25,7 @@ const TableRow = (
         initial='hidden'
         animate='visible'
         exit='exit'
+        style={customStyle?.tableBodyStyles}
       >
         <motion.div
           onClick={() => toggleExpand(item.id)}
@@ -57,7 +59,8 @@ const TableRow = (
                   onRowClicked,
                   toggleExpand,
                   columnSchema,
-                  rowExpanded
+                  rowExpanded,
+                  customStyle
                 )}
               </motion.div>
             </motion.div>
