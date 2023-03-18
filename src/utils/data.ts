@@ -60,9 +60,9 @@ export const data = [
   },
 ];
 
-type ColumnType = {
+export type ColumnType = {
   id: number;
-  row: Record<string, any>;
+  row: string;
   sort?: boolean;
   omit?: boolean;
 };
@@ -93,6 +93,20 @@ export const columnSchema = [
     id: 4,
     selector: 'Status',
     row: 'status',
+    sort: true,
+    omit: false,
+  },
+  {
+    id: 5,
+    selector: 'Range',
+    row: 'range',
+    sort: true,
+    omit: false,
+  },
+  {
+    id: 6,
+    selector: 'Pedigree',
+    row: 'pedigree',
     sort: true,
     omit: false,
   },

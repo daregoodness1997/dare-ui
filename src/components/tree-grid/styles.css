@@ -78,7 +78,24 @@ td:not(.tree-grid-first) {
 .tree-row {
   display: flex;
   gap: 0.4rem;
+  /* justify-content: space-between; */
+  gap: 6px;
+}
+
+.tree-col {
+  display: flex;
+  width: 100%;
   justify-content: space-between;
+}
+
+.tree-row .tree-grid-first {
+  width: 40px !important;
+}
+
+.tree-grid-child .tree-grid-first {
+  width: 34px;
+  padding-left: 6px;
+  box-sizing: border-box;
 }
 
 .tree-row.head {
@@ -107,5 +124,7 @@ td:not(.tree-grid-first) {
 }
 
 .tree-grid-child .tree-row .tree-row-item:nth-child(1) {
-  background-color: red;
+}
+
+.tree-col .tree-row-item:first-child {
 }
